@@ -7,6 +7,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import com.sunny.tinkertest.CityBean
@@ -47,7 +48,6 @@ class NativeItemDecoration(val context: Context, val datas : ArrayList<CityBean>
                     c.drawText(tag, nextChild.paddingLeft.toFloat(), (top - (headerheight - bound.height()) / 2).toFloat(), paint)
                     return
                 }
-
             }
         }
 
@@ -75,7 +75,6 @@ class NativeItemDecoration(val context: Context, val datas : ArrayList<CityBean>
             }
         }
 
-
     }
 
     /**
@@ -87,6 +86,7 @@ class NativeItemDecoration(val context: Context, val datas : ArrayList<CityBean>
         val right = parent.width - parent.paddingRight
         for (i in 0 until parent.childCount) {
             val child = parent.getChildAt(i)
+            //Log.d("child", child.toString())
             //拿到child
             val params = child.layoutParams as RecyclerView.LayoutParams
             val position = params.viewLayoutPosition

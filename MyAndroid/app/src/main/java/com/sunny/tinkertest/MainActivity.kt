@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity(), MainActivityContact.View {
         MainActivityPresenter(this)
     }
     private val adapter = MyAdapter()
-    private val decoration : NativeItemDecoration by lazy {
-        NativeItemDecoration(this, adapter.datas)
+    private val decoration : MyItemDecoration by lazy {
+        MyItemDecoration(this, adapter.datas)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), MainActivityContact.View {
         recyclerView.adapter = adapter
         val datas = ArrayList<CityBean>()
 
-        for (i in 0..100) {
+        for (i in 0..4) {
             datas.add(CityBean("$i", "${i+1}"))
             datas.add(CityBean("$i", "${i+2}"))
         }

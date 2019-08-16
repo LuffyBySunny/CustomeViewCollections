@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Rect
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -64,15 +65,23 @@ class MyItemDecoration(val context: Context, val datas : ArrayList<CityBean>) : 
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State?) {
         super.getItemOffsets(outRect, view, parent, state)
-        //当前item的 position
-        val position =  parent.getChildLayoutPosition(view)
+        //outRect相当于给view添加Padding
+        val position =  parent.getChildAdapterPosition(view)
         val params = view.layoutParams as RecyclerView.LayoutParams
         if (position > -1) {
             when {
                 //如果是第一个位置绘制头部
                 position == 0 -> outRect.set(parent.paddingLeft, headerheight,0,0)
-                datas[position].tag != datas[position-1].tag -> //这个tag和上一个tag不一样，就绘制
-                    outRect.set(parent.paddingLeft, headerheight,0,0)
+                //这个tag和上一个tag不一样，就绘制
+                datas[position].tag != datas[position-1].tag -> {
+                    outRect.set(parent.paddingLeft, headerheight, 0, 0)
+                }
+                //在最后一个预留尾部，拿到最后一个view的高度
+                position == parent.adapter.itemCount - 1 -> {
+                    outRect.set(parent.paddingLeft, - headerheight,0,parent.bottom - parent.paddingBottom -  headerheight * 2)
+                    Log.d("Item", position.toString() +"parent.bottom---" + parent.bottom + "view.bottom--" + view.height)
+                }
+
                 else -> outRect.set(0,0,0,0)
             }
         }
