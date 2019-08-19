@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.sunny.tinkertest.CityBean
+import com.sunny.tinkertest.bean.CityBean
 import com.sunny.tinkertest.R
 import java.util.*
 
@@ -27,19 +27,19 @@ class MyItemDecoration(val context: Context, val datas : ArrayList<CityBean>) : 
     private var view : View? = null
     private var headerView : View? = null
     //画悬浮头部，就是画第一个显示的item的tag
-    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDrawOver(c, parent, state)
         //头部
         val firstPosition = (parent.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
         val tag = datas[firstPosition].tag
 
         //实现往上顶的效果
-        if (firstPosition + 1 < parent.adapter.itemCount) {
-            val nextChild = parent.findViewHolderForAdapterPosition(firstPosition + 1).itemView
+        if (firstPosition + 1 < parent.adapter?.itemCount!!) {
+            val nextChild = parent.findViewHolderForAdapterPosition(firstPosition + 1)?.itemView
             //如果下一个item有一个新的header
             if (datas[firstPosition].tag != datas[firstPosition + 1].tag) {
                 //拿到当前item的header的top
-                val top = nextChild.top - headerheight
+                val top = nextChild?.top!! - headerheight
                 //当前的header要遮盖上一个header的时候，将上一个header往上平移
                 if (top <= headerheight) {
                     c.save()
@@ -63,10 +63,11 @@ class MyItemDecoration(val context: Context, val datas : ArrayList<CityBean>) : 
 
     }
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
         //outRect相当于给view添加Padding
         val position =  parent.getChildAdapterPosition(view)
+        view.top
         val params = view.layoutParams as RecyclerView.LayoutParams
         if (position > -1) {
             when {
@@ -77,8 +78,8 @@ class MyItemDecoration(val context: Context, val datas : ArrayList<CityBean>) : 
                     outRect.set(parent.paddingLeft, headerheight, 0, 0)
                 }
                 //在最后一个预留尾部，拿到最后一个view的高度
-                position == parent.adapter.itemCount - 1 -> {
-                    outRect.set(parent.paddingLeft, - headerheight,0,parent.bottom - parent.paddingBottom -  headerheight * 2)
+                position == parent.adapter?.itemCount!! - 1 -> {
+                    outRect.set(parent.paddingLeft, 0,0,parent.bottom - parent.paddingBottom -  headerheight * 2)
                     Log.d("Item", position.toString() +"parent.bottom---" + parent.bottom + "view.bottom--" + view.height)
                 }
 
@@ -118,7 +119,7 @@ class MyItemDecoration(val context: Context, val datas : ArrayList<CityBean>) : 
     /**
      * 绘制在itemView的下层
      */
-    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
         val left = parent.paddingLeft
         val right = parent.width - parent.paddingRight

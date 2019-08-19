@@ -7,10 +7,9 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import com.sunny.tinkertest.CityBean
+import com.sunny.tinkertest.bean.CityBean
 import java.util.*
 
 /**
@@ -24,21 +23,21 @@ class NativeItemDecoration(val context: Context, val datas : ArrayList<CityBean>
     private val paint = Paint()
     private val bound = Rect()
     //画悬浮头部，就是画第一个显示的item的tag
-    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDrawOver(c, parent, state)
         //头部
         val firstPosition = (parent.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
         val tag = datas[firstPosition].tag
         //第一个正在显示的item
-        val child = parent.findViewHolderForAdapterPosition(firstPosition).itemView
+        val child = parent.findViewHolderForAdapterPosition(firstPosition)?.itemView
 
         //实现往上顶的效果
-        if (firstPosition + 1 < parent.adapter.itemCount) {
-            val nextChild = parent.findViewHolderForAdapterPosition(firstPosition + 1).itemView
+        if (firstPosition + 1 < parent.adapter?.itemCount!!) {
+            val nextChild = parent.findViewHolderForAdapterPosition(firstPosition + 1)?.itemView
             //如果下一个item有一个新的header
             if (datas[firstPosition].tag != datas[firstPosition + 1].tag) {
                 //拿到当前item的header的top
-                val top = nextChild.top - headerheight
+                val top = nextChild?.top!! - headerheight
                 //当前的header要遮盖上一个header的时候，将上一个header往上平移
                 if (top <= headerheight) {
                     paint.color = Color.CYAN
@@ -57,11 +56,11 @@ class NativeItemDecoration(val context: Context, val datas : ArrayList<CityBean>
         c.drawRect(parent.paddingLeft.toFloat(),parent.paddingTop.toFloat(), (parent.right - parent.paddingRight).toFloat(), (headerheight + parent.paddingTop).toFloat(), paint)
         paint.getTextBounds(tag,0, tag.length, bound)
         paint.color = Color.RED
-        c.drawText(tag, child.paddingLeft.toFloat(),
+        c.drawText(tag, child?.paddingLeft?.toFloat()!!,
                 (parent.paddingTop + headerheight - (headerheight - bound.height()) / 2).toFloat(), paint)
     }
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
         //当前item的 position
         val position =  parent.getChildLayoutPosition(view)
@@ -80,7 +79,7 @@ class NativeItemDecoration(val context: Context, val datas : ArrayList<CityBean>
     /**
      * 绘制在itemView的下层
      */
-    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
         val left = parent.paddingLeft
         val right = parent.width - parent.paddingRight
@@ -89,7 +88,8 @@ class NativeItemDecoration(val context: Context, val datas : ArrayList<CityBean>
             //Log.d("child", child.toString())
             //拿到child
             val params = child.layoutParams as RecyclerView.LayoutParams
-            val position = params.viewLayoutPosition
+            //拿到child在数据中的位置
+            val position = parent.getChildAdapterPosition(child)
             //开始绘制title
             if (position > -1) {
                 when {

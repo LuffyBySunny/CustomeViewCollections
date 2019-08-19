@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.sunny.tinkertest.CityBean
+import com.sunny.tinkertest.bean.CityBean
 import com.sunny.tinkertest.R
 import java.util.ArrayList
 
@@ -29,8 +29,8 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
         return datas.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.tag?.text = datas[position].tag
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.tag.text = datas[position].tag
     }
 
     class ViewHolder(view : View): RecyclerView.ViewHolder(view) {

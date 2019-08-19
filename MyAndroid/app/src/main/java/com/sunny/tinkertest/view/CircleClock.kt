@@ -1,12 +1,15 @@
-package com.sunny.tinkertest
+package com.sunny.tinkertest.view
 
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
+import com.sunny.tinkertest.getBottomY
+import com.sunny.tinkertest.getCenterY
+import com.sunny.tinkertest.getTopY
+import com.sunny.tinkertest.toText
 import java.util.*
 
 /**

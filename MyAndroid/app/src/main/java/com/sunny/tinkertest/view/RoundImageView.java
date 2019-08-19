@@ -1,4 +1,4 @@
-package com.sunny.tinkertest;
+package com.sunny.tinkertest.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,6 +11,8 @@ import android.os.Build;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.sunny.tinkertest.R;
 
 /**
  * Created by Android Studio.

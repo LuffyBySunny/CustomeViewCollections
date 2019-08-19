@@ -1,4 +1,4 @@
-package com.sunny.tinkertest
+package com.sunny.tinkertest.bean
 
 /**
  * Created by Android Studio.

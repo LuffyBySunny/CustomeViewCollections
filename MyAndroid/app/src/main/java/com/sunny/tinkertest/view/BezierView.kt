@@ -1,4 +1,4 @@
-package com.sunny.tinkertest
+package com.sunny.tinkertest.view
 
 import android.animation.ValueAnimator
 import android.content.Context

@@ -7,5 +7,47 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <declare-styleable name="TabLayout">
+        <attr name="tabIndicatorColor" format="color" />
+        <attr name="tabIndicatorWidth" format="dimension" />
+        <attr name="tabIndicatorHeight" format="dimension" />
+        <attr name="tabIndicatorVisibility"  >
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="tabContentStart" format="dimension" />
+        <attr name="tabBackground" format="reference" />
+        <attr name="tabMode">
+            <enum name="scrollable" value="0" />
+            <enum name="fixed" value="1" />
+        </attr>
+        <attr name="tabGravity">
+            <enum name="fill" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="tabBold">
+            <enum name="normal" value="0" />
+            <enum name="selected" value="1" />
+            <enum name="all" value="2" />
+        </attr>
+        <attr name="tabMinWidth" format="dimension" />
+        <attr name="tabMaxWidth" format="dimension" />
+        <attr name="tabTextAppearance" format="reference" />
+        <attr name="tabTextSize" format="dimension" />
+        <attr name="tabTextColor" format="color" />
+        <attr name="tabSelectedTextSize" format="dimension" />
+        <attr name="tabSelectedTextColor" format="color" />
+        <attr name="tabPaddingStart" format="dimension" />
+        <attr name="tabPaddingTop" format="dimension" />
+        <attr name="tabPaddingEnd" format="dimension" />
+        <attr name="tabPaddingBottom" format="dimension" />
+        <attr name="tabPadding" format="dimension" />
+        <attr name="tabSplitterColor" format="color" />
+        <attr name="tabSplitterWidth" format="dimension" />
+        <attr name="tabSplitterPadding" format="dimension" />
+    </declare-styleable>
+    <style name="HomeTabLayout">
+        <item name="android:textSize">15sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
 </resources>

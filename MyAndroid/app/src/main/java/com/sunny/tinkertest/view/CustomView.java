@@ -1,10 +1,12 @@
-package com.sunny.tinkertest;
+package com.sunny.tinkertest.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import com.sunny.tinkertest.R;
 
 /**
  * Created by Android Studio.

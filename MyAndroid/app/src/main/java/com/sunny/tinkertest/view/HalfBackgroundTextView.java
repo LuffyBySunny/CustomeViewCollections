@@ -1,4 +1,4 @@
-package com.sunny.tinkertest;
+package com.sunny.tinkertest.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.Log;
+
+import com.sunny.tinkertest.R;
 
 public class HalfBackgroundTextView extends AppCompatTextView {
 

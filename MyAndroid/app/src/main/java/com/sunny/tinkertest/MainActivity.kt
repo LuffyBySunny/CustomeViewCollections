@@ -4,12 +4,18 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.LinearSnapHelper
 import android.text.TextUtils
+import com.sunny.tinkertest.bean.CityBean
+import com.sunny.tinkertest.bean.NewsBean
+import com.sunny.tinkertest.bean.SectionEnty
 import com.sunny.tinkertest.recyclerview.MyAdapter
 import com.sunny.tinkertest.recyclerview.MyItemDecoration
 import com.sunny.tinkertest.recyclerview.NativeItemDecoration
+import com.sunny.tinkertest.recyclerview.QuickAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -41,8 +47,19 @@ class MainActivity : AppCompatActivity(), MainActivityContact.View {
         adapter.datas = datas
         decoration.headerheight = 60
         recyclerView.addItemDecoration(decoration)
-        recyclerView.layoutManager = LinearLayoutManager(this)
 
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val linearSnapHelper = LinearSnapHelper()
+        linearSnapHelper.attachToRecyclerView(recyclerView)
+        val mTitles = arrayOf("上海",
+                "头条推荐", "生活", "娱乐八卦",
+                "体育", "段子", "美食", "电影", "科技",
+                "搞笑", "社会", "财经", "时尚", "汽车", "军事",
+                "小说", "育儿", "职场", "萌宠", "游戏", "健康", "动漫", "互联网")
+
+        mTitles.forEach {
+            tabLayout.addTab(tabLayout.newTab().setText(it))
+        }
         /*timer.schedule(object : TimerTask(){
             override fun run() {
                 runOnUiThread {
