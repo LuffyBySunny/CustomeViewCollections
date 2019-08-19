@@ -21,7 +21,7 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
             notifyDataSetChanged()
         }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recyclerview, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_5view, parent, false)
         return ViewHolder(view)
     }
 
@@ -30,11 +30,19 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tag.text = datas[position].tag
+        holder.textView1.text = datas[position].name
+        holder.textView2.text = datas[position].name
+        holder.textView3.text = datas[position].name
+        holder.textView4.text = datas[position].name
+        holder.textView5.text = datas[position].name
     }
 
     class ViewHolder(view : View): RecyclerView.ViewHolder(view) {
-        val tag = view.findViewById<TextView>(R.id.tag)!!
+        val textView1 = view.findViewById<TextView>(R.id.text1)
+        val textView2 = view.findViewById<TextView>(R.id.text2)
+        val textView3 = view.findViewById<TextView>(R.id.text3)
+        val textView4 = view.findViewById<TextView>(R.id.text4)
+        val textView5 = view.findViewById<TextView>(R.id.text5)
     }
 
 

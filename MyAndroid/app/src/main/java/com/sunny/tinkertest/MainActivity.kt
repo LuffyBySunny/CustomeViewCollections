@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
+import android.support.v7.widget.PagerSnapHelper
 import android.text.TextUtils
 import com.sunny.tinkertest.bean.CityBean
 import com.sunny.tinkertest.bean.NewsBean
@@ -40,16 +41,18 @@ class MainActivity : AppCompatActivity(), MainActivityContact.View {
         recyclerView.adapter = adapter
         val datas = ArrayList<CityBean>()
 
-        for (i in 0..4) {
+        for (i in 0..100) {
             datas.add(CityBean("$i", "${i+1}"))
-            datas.add(CityBean("$i", "${i+2}"))
         }
         adapter.datas = datas
         decoration.headerheight = 60
-        recyclerView.addItemDecoration(decoration)
+        //recyclerView.addItemDecoration(decoration)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        val linearSnapHelper = LinearSnapHelper()
+
+        recyclerView.layoutManager = LinearLayoutManager(this).apply {
+            orientation = LinearLayoutManager.HORIZONTAL
+        }
+        val linearSnapHelper = PagerSnapHelper()
         linearSnapHelper.attachToRecyclerView(recyclerView)
         val mTitles = arrayOf("上海",
                 "头条推荐", "生活", "娱乐八卦",
@@ -57,9 +60,9 @@ class MainActivity : AppCompatActivity(), MainActivityContact.View {
                 "搞笑", "社会", "财经", "时尚", "汽车", "军事",
                 "小说", "育儿", "职场", "萌宠", "游戏", "健康", "动漫", "互联网")
 
-        mTitles.forEach {
+        /*mTitles.forEach {
             tabLayout.addTab(tabLayout.newTab().setText(it))
-        }
+        }*/
         /*timer.schedule(object : TimerTask(){
             override fun run() {
                 runOnUiThread {

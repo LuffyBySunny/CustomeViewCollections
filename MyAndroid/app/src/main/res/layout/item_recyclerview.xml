@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tag"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:text="hhhh"
+    android:textColor="@color/colorAccent"
+    android:textSize="20sp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tag"
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:gravity="center"
-        android:text="hhhh"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-</android.support.constraint.ConstraintLayout>
+</TextView>
