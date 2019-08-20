@@ -27,6 +27,11 @@
 
 </com.sunny.tinkertest.TabLayout>-->
 
+    <com.sunny.tinkertest.view.WeekBar
+        android:layout_width="match_parent"
+        android:layout_height="36dp">
+
+    </com.sunny.tinkertest.view.WeekBar>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
