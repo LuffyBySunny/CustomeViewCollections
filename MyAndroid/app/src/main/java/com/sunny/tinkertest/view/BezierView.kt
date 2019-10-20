@@ -20,6 +20,7 @@ class BezierView @JvmOverloads constructor(context: Context?, attrs: AttributeSe
     set(value) {
         paint.color = value
         invalidate()
+        field = value
     }
     private var mPointPath : Path = Path()
     private val bezierPath = Path()

@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.sunny.tinkertest;
+package com.sunny.tinkertest.tablayout;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.appcompat.widget.TintTypedArray;
 /**
  * TabItem is a special 'view' which allows you to declare tab items for a {@link android.support.design.widget.TabLayout}
  * within a layout. This view is not actually added to TabLayout, it is just a dummy which allows
@@ -47,10 +47,10 @@ public final class TabItem extends View {
         super(context, attrs);
 
         final TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
-                android.support.design.R.styleable.TabItem);
-        mText = a.getText(android.support.design.R.styleable.TabItem_android_text);
-        mIcon = a.getDrawable(android.support.design.R.styleable.TabItem_android_icon);
-        mCustomLayout = a.getResourceId(android.support.design.R.styleable.TabItem_android_layout, 0);
+                com.google.android.material.R.styleable.TabItem);
+        mText = a.getText(com.google.android.material.R.styleable.TabItem_android_text);
+        mIcon = a.getDrawable(com.google.android.material.R.styleable.TabItem_android_icon);
+        mCustomLayout = a.getResourceId(com.google.android.material.R.styleable.TabItem_android_layout, 0);
         a.recycle();
     }
 }

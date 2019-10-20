@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tablayout.TabActivity">
+
+    <com.sunny.tinkertest.tablayout.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingRight="@dimen/library_resource_37dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="enterAlways"
+        app:tabBackground="@android:color/transparent"
+        app:tabBold="selected"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="@dimen/library_resource_0dp"
+        app:tabMaxWidth="200dp"
+        app:tabMinWidth="20dp"
+        app:tabMode="scrollable"
+        app:tabPaddingEnd="4dp"
+        app:tabPaddingStart="16dp"
+        app:tabSelectedTextColor="@color/resource_library_FF6C00"
+        app:tabSelectedTextSize="@dimen/library_resource_20sp"
+        app:tabTextAppearance="@style/HomeTabLayout"
+        app:tabTextColor="@color/resource_library_5D5D5D">
+
+    </com.sunny.tinkertest.tablayout.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

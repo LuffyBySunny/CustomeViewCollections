@@ -1,4 +1,4 @@
-package com.sunny.tinkertest;
+package com.sunny.tinkertest.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,9 +10,11 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.os.Build;
-import android.support.v7.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 /**
  * Created by Android Studio.

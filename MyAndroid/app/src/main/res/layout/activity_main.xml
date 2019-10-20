@@ -3,40 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-<!--<com.sunny.tinkertest.TabLayout
-    android:id="@+id/tabLayout"
-    app:layout_scrollFlags="enterAlways"
-    app:tabBackground="@android:color/transparent"
-    app:tabBold="selected"
-    app:tabMaxWidth="200dp"
-    app:tabMinWidth="20dp"
-    app:tabIndicatorHeight="0dp"
-    app:tabMode="scrollable"
-    app:tabGravity="center"
-    app:tabPaddingStart="16dp"
-    app:tabPaddingEnd="4dp"
-    app:tabSelectedTextColor="#ff6c00"
-    app:tabSelectedTextSize="20sp"
-    app:tabTextAppearance="@style/HomeTabLayout"
-    app:tabTextColor="#5d5d5d"
-    android:layout_width="match_parent"
-    android:layout_height="100dp">
 
-</com.sunny.tinkertest.TabLayout>-->
-
-    <com.sunny.tinkertest.view.WeekBar
+    <Button
+        android:id="@+id/gotoTabActivity"
+        android:text="跳转TabActivity"
         android:layout_width="match_parent"
-        android:layout_height="36dp">
-
-    </com.sunny.tinkertest.view.WeekBar>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

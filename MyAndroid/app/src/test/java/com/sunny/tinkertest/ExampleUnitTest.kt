@@ -1,5 +1,6 @@
 package com.sunny.tinkertest
 
+import io.reactivex.Observable
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,5 +14,15 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun testCreate() {
+        println(test.test("qwertyuio"))
+    }
+
+    @Test
+    fun test() {
+
     }
 }
